@@ -2,7 +2,11 @@ const express = require('express');
 const axios = require('axios');
 const router = express.Router();
 
-router.post('/create', async (req, res) => {  // ← أضف async هنا
+router.get('/', (req, res) => {
+    res.send('Coupon route is working!');
+});
+
+router.post('/create', async (req, res) => {
     try {
         const { access_token, discount_value } = req.body;
 
