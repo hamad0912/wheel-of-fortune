@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>عجلة الحظ</title>
+</head>
+
+<body>
+    <h1>جرّب حظك!</h1>
+    <button onclick="spin()">دوّر العجلة</button>
+    <p id="result"></p>
+
+    <script>
+        function spin() {
+            const rewards = [5, 10, 15, 20];
+            const discount = rewards[Math.floor(Math.random() * rewards.length)];
+
+            fetch('http://localhost:3000/coupon/create', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        access_token: 'هنا تحط التوكن حق التاجر',
+                        discount_value: discount
+                    })
+                })
+                .then(res => res.json())
+                .then(data => {
+                    document.getElementById('result').innerText = 'ربحت خصم ' + discount + '%! استخدم الكود: ' + data.data.code;
+                });
+        }
+    </script>
+</body>
+
+</html>
