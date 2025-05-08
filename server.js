@@ -1,7 +1,7 @@
 const express = require('express');
 const dotenv = require('dotenv');
-const oauthRoutes = require('./wheel-of-fortune.git/routes/oauth');
-const couponRoutes = require('./wheel-of-fortune.git/routes/coupon');
+const oauthRoutes = require('./routes/oauth');
+const couponRoutes = require('./routes/coupon');
 const cors = require('cors');
 
 // تحميل متغيرات البيئة من ملف .env
