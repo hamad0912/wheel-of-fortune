@@ -2,8 +2,10 @@ const express = require('express');
 const axios = require('axios');
 const router = express.Router();
 
-router.post('/create', async(req, res) => {
-    const { access_token, discount_value } = req.body;
+router.get('/', (req, res) => {
+  res.send('Coupon route is working!');
+});
+
 
     const response = await axios.post('https://api.salla.dev/admin/v2/discounts', {
         name: 'جائزة عجلة الحظ',
